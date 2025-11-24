@@ -2,35 +2,34 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Codenexx – Building Apps that Shape Habits</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Codenexx – App Development Studio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta
     name="description"
-    content="Codenexx is a product-focused app studio behind SweatPass, BharatGPT, Stakewise and ThinkMap – apps that help people think better, move more, and build discipline."
+    content="Codenexx is a product-first app studio behind SweatPass, BharatGPT, Stakewise, and ThinkMap."
   />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     rel="stylesheet"
   />
   <style>
     :root {
-      --bg: #050816;
-      --bg-elevated: #080f1f;
-      --accent: #38bdf8;
-      --accent-soft: rgba(56, 189, 248, 0.1);
+      --bg: #020617;
+      --bg-soft: #020a16;
+      --card: #020b1a;
+      --card-soft: #020d1f;
+      --border-subtle: rgba(148, 163, 184, 0.2);
+      --text-main: #e5e7eb;
+      --text-muted: #9ca3af;
+      --accent1: #38bdf8;
       --accent2: #22c55e;
-      --accent2-soft: rgba(34, 197, 94, 0.08);
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --border-subtle: rgba(148, 163, 184, 0.35);
-      --radius-lg: 18px;
-      --radius-xl: 26px;
-      --shadow-soft: 0 20px 50px rgba(15, 23, 42, 0.55);
-      --shadow-subtle: 0 14px 30px rgba(15, 23, 42, 0.45);
-      --max-width: 1120px;
-      --nav-height: 70px;
+      --accent-soft: rgba(56, 189, 248, 0.12);
+      --accent-gradient: linear-gradient(135deg, #38bdf8, #22c55e);
+      --radius-lg: 1.5rem;
+      --radius-md: 0.85rem;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.75);
     }
 
     * {
@@ -39,11 +38,15 @@
       padding: 0;
     }
 
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: radial-gradient(circle at top left, #0f172a 0, #020617 45%, #000 100%);
-      color: var(--text);
-      line-height: 1.5;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(circle at top left, #0b1220 0, #020617 40%, #000 100%);
+      color: var(--text-main);
       -webkit-font-smoothing: antialiased;
     }
 
@@ -59,1183 +62,1310 @@
 
     .page {
       min-height: 100vh;
-      padding: 16px 20px 40px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      gap: 32px;
     }
 
-    .page-inner {
+    .container {
       width: 100%;
-      max-width: var(--max-width);
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.25rem;
     }
 
-    /* NAVBAR */
-    .nav {
+    /* ---------------- NAVBAR ---------------- */
+
+    .navbar {
       position: sticky;
       top: 0;
       z-index: 40;
-      backdrop-filter: blur(24px);
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.96));
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      box-shadow: 0 24px 60px rgba(15, 23, 42, 0.7);
-      padding: 10px 18px;
-      margin: 0 auto 12px;
-      max-width: var(--max-width);
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(2, 6, 23, 0.9), rgba(2, 6, 23, 0.6));
+      border-bottom: 1px solid rgba(15, 23, 42, 0.8);
+    }
+
+    .navbar-inner {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 18px;
+      padding: 0.9rem 0;
+      gap: 1.25rem;
     }
 
-    .nav-left {
+    .brand {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 0.6rem;
     }
 
-    .logo-pill {
-      width: 34px;
-      height: 34px;
+    .brand-mark {
+      width: 32px;
+      height: 32px;
       border-radius: 999px;
-      background: radial-gradient(circle at 0% 0%, #38bdf8, #22c55e);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7), 0 14px 30px rgba(15, 23, 42, 0.85);
+      background-image: conic-gradient(from 180deg, #38bdf8, #22c55e, #38bdf8);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.7);
     }
 
-    .logo-pill span {
-      font-size: 18px;
+    .brand-mark::after {
+      content: "";
+      position: absolute;
+      inset: 4px;
+      border-radius: inherit;
+      background: radial-gradient(circle at 0 0, rgba(15, 23, 42, 0.8), #020617);
+    }
+
+    .brand-text-main {
       font-weight: 700;
-      letter-spacing: 0.03em;
-      color: #0b1120;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
     }
 
-    .brand-text {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .brand-text__name {
-      font-size: 17px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-    }
-
-    .brand-text__tagline {
-      font-size: 11px;
-      color: var(--muted);
+    .brand-text-sub {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: var(--text-muted);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 16px;
-      font-size: 13px;
-      color: var(--muted);
+      gap: 1.6rem;
+      font-size: 0.9rem;
     }
 
     .nav-links a {
-      padding: 6px 10px;
-      border-radius: 999px;
-      transition: background 0.18s ease, color 0.18s ease, transform 0.1s ease;
+      color: var(--text-muted);
+      padding-bottom: 0.15rem;
+      border-bottom: 1px solid transparent;
+      transition: color 0.15s ease, border-color 0.15s ease;
     }
 
     .nav-links a:hover {
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--text);
-      transform: translateY(-1px);
+      color: var(--text-main);
+      border-color: rgba(148, 163, 184, 0.5);
     }
 
     .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
+      padding: 0.5rem 0.9rem;
       border-radius: 999px;
-      padding: 7px 12px;
-      background: radial-gradient(circle at top left, #38bdf8, #22c55e);
-      color: #020617;
-      font-size: 12px;
-      font-weight: 600;
-      box-shadow: 0 16px 35px rgba(34, 197, 94, 0.4);
-      border: none;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      font-size: 0.85rem;
+      color: var(--text-main);
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 60%);
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
       cursor: pointer;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
-      white-space: nowrap;
+      transition: border-color 0.15s ease, transform 0.12s ease, box-shadow 0.12s ease;
     }
 
     .nav-cta span.icon {
-      font-size: 14px;
+      font-size: 1rem;
     }
 
     .nav-cta:hover {
+      border-color: rgba(96, 165, 250, 0.9);
       transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 22px 50px rgba(34, 197, 94, 0.45);
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.7);
     }
 
-    /* LAYOUT SECTIONS */
-    main {
-      display: flex;
-      flex-direction: column;
-      gap: 32px;
-      margin-top: 6px;
-    }
-
-    section {
-      border-radius: var(--radius-xl);
-      padding: 22px 22px 24px;
-      background: radial-gradient(circle at top left, rgba(15, 23, 42, 0.96), rgba(2, 6, 23, 0.96));
-      border: 1px solid var(--border-subtle);
-      box-shadow: var(--shadow-soft);
-    }
-
-    section + section {
-      margin-top: 6px;
-    }
-
-    .section-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 14px;
-    }
-
-    .section-title {
-      font-size: 18px;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .section-pill {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 4px 9px;
+    .nav-toggle {
+      display: none;
+      font-size: 1.3rem;
       border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
       border: 1px solid rgba(148, 163, 184, 0.4);
-    }
-
-    .section-subtitle {
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    /* HERO / SWEATPASS */
-    #sweatpass {
-      position: relative;
-      overflow: hidden;
-    }
-
-    #sweatpass::before {
-      content: "";
-      position: absolute;
-      inset: -40%;
-      background:
-        radial-gradient(circle at 0% 0%, rgba(56, 189, 248, 0.24), transparent 55%),
-        radial-gradient(circle at 100% 100%, rgba(34, 197, 94, 0.25), transparent 53%);
-      opacity: 0.75;
-      pointer-events: none;
-      z-index: -1;
-    }
-
-    .hero-grid {
-      display: grid;
-      grid-template-columns: minmax(0, 1.15fr) minmax(0, 1.1fr);
-      gap: 22px;
-      align-items: center;
-    }
-
-    .hero-left {
-      border-radius: calc(var(--radius-xl) - 4px);
-      overflow: hidden;
-      position: relative;
-      background: radial-gradient(circle at top left, #020617, #020617);
-      box-shadow: var(--shadow-subtle);
-      border: 1px solid rgba(15, 23, 42, 0.9);
-      min-height: 260px;
-      display: flex;
+      width: 2.25rem;
+      height: 2.25rem;
+      display: none;
       align-items: center;
       justify-content: center;
-      padding: 4px;
+      cursor: pointer;
     }
 
-    .hero-left-inner {
-      border-radius: calc(var(--radius-xl) - 12px);
-      overflow: hidden;
-      position: relative;
+    /* ---------------- HERO / SWEATPASS BANNER ---------------- */
+
+    main {
+      flex: 1;
+      padding: 2.5rem 0 3.5rem;
     }
 
-    .hero-tag {
-      position: absolute;
-      inset: 10px auto auto 12px;
-      display: inline-flex;
+    .hero {
+      margin-top: 0.75rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1.1fr);
+      gap: 2.5rem;
       align-items: center;
-      gap: 7px;
-      padding: 4px 9px;
-      border-radius: 999px;
-      backdrop-filter: blur(16px);
-      background: rgba(15, 23, 42, 0.85);
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      font-size: 11px;
-      color: var(--muted);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
     }
 
-    .hero-tag-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: radial-gradient(circle at 0 0, #38bdf8, #22c55e);
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transform: translate3d(0, 0, 0);
-    }
-
-    .hero-right {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-
-    .badge-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .badge {
-      font-size: 11px;
+    .hero-copy-eyebrow {
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      padding: 5px 9px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.94);
-      display: inline-flex;
-      gap: 6px;
-      align-items: center;
-      color: var(--muted);
-    }
-
-    .badge.badge-highlight {
-      border-color: rgba(56, 189, 248, 0.8);
-      background: rgba(15, 23, 42, 0.85);
-      color: var(--accent);
+      letter-spacing: 0.25em;
+      color: var(--accent1);
+      margin-bottom: 0.6rem;
     }
 
     .hero-title {
-      font-size: clamp(26px, 3vw, 30px);
+      font-size: clamp(2rem, 3vw, 2.6rem);
       font-weight: 700;
-      letter-spacing: 0.02em;
       line-height: 1.1;
+      margin-bottom: 0.8rem;
     }
 
-    .hero-title span.gradient {
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
+    .hero-gradient-text {
+      background: var(--accent-gradient);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .hero-lead {
-      font-size: 14px;
-      color: var(--muted);
-      max-width: 520px;
-    }
-
-    .hero-keypoints {
-      display: grid;
-      gap: 8px;
-      font-size: 13px;
-      color: var(--muted);
-    }
-
-    .hero-keypoints strong {
-      color: #e5e7eb;
-    }
-
-    .hero-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-    }
-
-    .btn {
-      border-radius: 999px;
-      padding: 9px 16px;
-      font-size: 13px;
-      font-weight: 500;
-      border: 1px solid transparent;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease,
-        background 0.12s ease, color 0.12s ease, filter 0.12s ease;
-      background: none;
-      color: inherit;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, #38bdf8, #22c55e);
-      color: #020617;
-      box-shadow: 0 16px 40px rgba(34, 197, 94, 0.5);
-    }
-
-    .btn-primary:hover {
-      transform: translateY(-1px);
-      filter: brightness(1.05);
-      box-shadow: 0 22px 52px rgba(34, 197, 94, 0.55);
-    }
-
-    .btn-ghost {
-      border-color: rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.9);
-      color: var(--muted);
-    }
-
-    .btn-ghost:hover {
-      border-color: rgba(148, 163, 184, 0.9);
-      color: var(--text);
-      background: rgba(15, 23, 42, 0.96);
-      transform: translateY(-1px);
-    }
-
-    .btn-icon {
-      font-size: 14px;
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.25rem;
     }
 
     .hero-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--muted);
+      gap: 0.6rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.8rem;
     }
 
-    .hero-meta-item {
+    .pill {
+      padding: 0.3rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: var(--text-muted);
       display: inline-flex;
       align-items: center;
-      gap: 6px;
-      padding: 5px 9px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.9);
-      border: 1px solid rgba(148, 163, 184, 0.4);
+      gap: 0.38rem;
+      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.12), transparent 60%);
     }
 
-    .dot {
+    .pill strong {
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .hero-cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 1.3rem;
+    }
+
+    .btn-primary {
+      background-image: var(--accent-gradient);
+      color: #f9fafb;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 0.9rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      box-shadow: 0 18px 40px rgba(34, 197, 94, 0.35);
+      transition: transform 0.12s ease, box-shadow 0.12s ease, filter 0.12s ease;
+      text-decoration: none;
+    }
+
+    .btn-primary span.icon {
+      font-size: 1rem;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 22px 55px rgba(56, 189, 248, 0.38);
+      filter: brightness(1.07);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      padding: 0.8rem 1.2rem;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      text-decoration: none;
+      transition: border-color 0.12s ease, background 0.12s ease, color 0.12s ease;
+    }
+
+    .btn-ghost span.icon {
+      font-size: 1rem;
+    }
+
+    .btn-ghost:hover {
+      border-color: rgba(148, 163, 184, 0.9);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text-main);
+    }
+
+    .hero-footnote {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .hero-footnote span.dot {
+      width: 4px;
+      height: 4px;
+      border-radius: 999px;
+      background: rgba(148, 163, 184, 0.7);
+    }
+
+    .hero-footnote strong {
+      font-weight: 500;
+      color: var(--accent1);
+    }
+
+    .hero-badge-row {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+      margin-top: 0.35rem;
+    }
+
+    .hero-badge {
+      font-size: 0.75rem;
+      padding: 0.22rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.85);
+    }
+
+    /* Banner card */
+
+    .hero-right {
+      position: relative;
+    }
+
+    .banner-card {
+      position: relative;
+      border-radius: 1.7rem;
+      overflow: hidden;
+      border: 1px solid var(--border-subtle);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.16), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.14), transparent 55%),
+        #020617;
+      box-shadow: var(--shadow-soft);
+      isolation: isolate;
+    }
+
+    .banner-media {
+      position: relative;
+    }
+
+    .banner-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      max-height: 260px;
+    }
+
+    .banner-tag {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.22em;
+      padding: 0.32rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .banner-tag span.dot {
       width: 7px;
       height: 7px;
       border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 12px rgba(34, 197, 94, 0.85);
+      background-image: var(--accent-gradient);
     }
 
-    /* SWEATPASS FEATURES ROW */
-    .feature-grid {
-      margin-top: 16px;
+    .banner-content {
+      padding: 1.2rem 1.35rem 1.4rem;
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      font-size: 12px;
+      gap: 0.5rem;
     }
 
-    .feature-card {
-      border-radius: var(--radius-lg);
-      padding: 12px 12px 13px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: 0 12px 26px rgba(15, 23, 42, 0.7);
+    .banner-title-row {
       display: flex;
-      flex-direction: column;
-      gap: 4px;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: center;
     }
 
-    .feature-label {
-      font-size: 11px;
+    .banner-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      display: flex;
+      align-items: baseline;
+      gap: 0.45rem;
+    }
+
+    .banner-title span.highlight {
+      background: var(--accent-gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .banner-chip {
+      font-size: 0.68rem;
       text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(148, 163, 184, 0.9);
+      letter-spacing: 0.16em;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
     }
 
-    .feature-title {
-      font-size: 13px;
+    .banner-desc {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .banner-meta-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+      align-items: center;
+    }
+
+    .banner-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+    }
+
+    .banner-bullet {
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+      border: 1px solid rgba(55, 65, 81, 0.8);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+    }
+
+    .banner-cta {
+      font-size: 0.78rem;
+      color: var(--accent1);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      cursor: pointer;
+    }
+
+    .banner-cta span.icon {
+      font-size: 0.9rem;
+    }
+
+    /* ---------------- SECTIONS ---------------- */
+
+    section {
+      margin-bottom: 3.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 1.7rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.25em;
+      color: var(--accent1);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+      flex-wrap: wrap;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
       font-weight: 600;
     }
 
-    .feature-desc {
-      font-size: 12px;
-      color: var(--muted);
+    .section-subtitle {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      max-width: 26rem;
     }
 
-    /* APPS SECTION */
-    #apps .section-header {
-      margin-bottom: 10px;
+    /* SweatPass details */
+
+    .sweatpass-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+      gap: 1.9rem;
+      align-items: flex-start;
     }
+
+    .card {
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      background:
+        radial-gradient(circle at top left, rgba(56, 189, 248, 0.1), transparent 55%),
+        radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.12), transparent 55%),
+        var(--card);
+      padding: 1.3rem 1.4rem;
+      box-shadow: 0 14px 32px rgba(15, 23, 42, 0.7);
+    }
+
+    .card h3 {
+      font-size: 1.04rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+      margin-bottom: 0.55rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      list-style: none;
+      margin: 0.35rem 0 0;
+      padding: 0;
+      display: grid;
+      gap: 0.35rem;
+    }
+
+    .card ul li {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.45rem;
+    }
+
+    .card ul li::before {
+      content: "•";
+      color: var(--accent1);
+      font-size: 1.1rem;
+      line-height: 1;
+      margin-top: -1px;
+    }
+
+    .card-tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .card-tag {
+      font-size: 0.75rem;
+      padding: 0.18rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.55);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .muted-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    .two-col-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.3rem 1.2rem;
+      margin-top: 0.35rem;
+    }
+
+    .two-col-list span {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* Apps grid */
 
     .apps-grid {
       display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 14px;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.1rem;
     }
 
     .app-card {
-      border-radius: var(--radius-lg);
-      padding: 13px 13px 14px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      box-shadow: var(--shadow-subtle);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-subtle);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.95rem;
       display: flex;
       flex-direction: column;
-      gap: 8px;
-      transition: transform 0.12s ease, box-shadow 0.12s ease, border-color 0.12s ease;
-    }
-
-    .app-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(56, 189, 248, 0.9);
-      box-shadow: 0 22px 50px rgba(15, 23, 42, 0.95);
+      gap: 0.55rem;
     }
 
     .app-header {
       display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
       align-items: center;
-      gap: 10px;
     }
 
-    .app-logo {
-      width: 34px;
-      height: 34px;
-      border-radius: 11px;
+    .app-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 0.9rem;
       overflow: hidden;
-      flex-shrink: 0;
-      background: #020617;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.9);
+      box-shadow: 0 8px 18px rgba(15, 23, 42, 0.85);
     }
 
     .app-name {
-      font-size: 14px;
+      font-size: 0.9rem;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 6px;
     }
 
-    .app-chip {
-      font-size: 10px;
+    .app-pill {
+      font-size: 0.68rem;
       text-transform: uppercase;
-      padding: 3px 7px;
+      letter-spacing: 0.12em;
+      padding: 0.18rem 0.55rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.4);
-      color: var(--muted);
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: var(--text-muted);
     }
 
     .app-desc {
-      font-size: 12px;
-      color: var(--muted);
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.45;
     }
 
     .app-meta {
-      margin-top: 2px;
-      font-size: 11px;
-      color: rgba(148, 163, 184, 0.9);
-    }
-
-    .app-actions {
-      margin-top: 4px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: auto;
+      padding-top: 0.45rem;
+      border-top: 1px dashed rgba(31, 41, 55, 0.9);
       display: flex;
+      justify-content: space-between;
+      gap: 0.6rem;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 11px;
     }
 
-    .app-link {
-      padding: 4px 8px;
-      border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      color: var(--muted);
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      transition: background 0.12s ease, color 0.12s ease, border-color 0.12s ease;
-    }
+    /* About / approach */
 
-    .app-link:hover {
-      background: rgba(15, 23, 42, 0.96);
-      border-color: rgba(56, 189, 248, 0.9);
-      color: var(--text);
-    }
-
-    /* ABOUT / APPROACH */
-    #about {
+    .about-grid {
       display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
-      gap: 20px;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 1.7rem;
     }
 
-    .about-body {
-      font-size: 13px;
-      color: var(--muted);
+    .stack-list {
+      list-style: none;
       display: grid;
-      gap: 10px;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
     }
 
-    .pill-row {
+    .stack-list li {
+      font-size: 0.85rem;
+      color: var(--text-muted);
       display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 4px;
+      gap: 0.45rem;
+      align-items: flex-start;
     }
 
-    .pill {
-      font-size: 11px;
-      padding: 4px 9px;
+    .stack-list li::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      margin-top: 0.2rem;
       border-radius: 999px;
-      border: 1px solid rgba(148, 163, 184, 0.6);
-      background: rgba(15, 23, 42, 0.94);
-      color: var(--muted);
+      background-image: var(--accent-gradient);
     }
 
-    .stat-card {
+    /* Contact */
+
+    .contact-card {
       border-radius: var(--radius-lg);
-      padding: 14px 13px;
-      background: radial-gradient(circle at top left, rgba(56, 189, 248, 0.22), rgba(15, 23, 42, 0.98));
-      border: 1px solid rgba(56, 189, 248, 0.8);
-      box-shadow: 0 20px 40px rgba(15, 23, 42, 0.9);
+      border: 1px solid var(--border-subtle);
+      background:
+        linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(34, 197, 94, 0.2)),
+        radial-gradient(circle at top left, rgba(15, 23, 42, 0.8), #020617);
+      padding: 1.5rem 1.6rem;
       display: grid;
-      gap: 6px;
-      align-content: start;
-    }
-
-    .stat-kicker {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: rgba(15, 23, 42, 0.9);
-    }
-
-    .stat-number {
-      font-size: 22px;
-      font-weight: 700;
-    }
-
-    .stat-text {
-      font-size: 12px;
-      color: rgba(15, 23, 42, 0.9);
-    }
-
-    .stat-tags {
-      margin-top: 8px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      font-size: 11px;
-    }
-
-    .stat-tag {
-      padding: 3px 8px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.92);
-      color: #e5e7eb;
-      border: 1px solid rgba(15, 23, 42, 0.9);
-    }
-
-    /* CONTACT */
-    #contact {
-      display: grid;
-      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1.1fr);
-      gap: 18px;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1.1fr);
+      gap: 1.6rem;
       align-items: center;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.8);
     }
 
-    .contact-text {
-      font-size: 13px;
-      color: var(--muted);
+    .contact-card h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: #e5e7eb;
+      max-width: 26rem;
+    }
+
+    .contact-details {
+      font-size: 0.88rem;
+      color: #e5e7eb;
       display: grid;
-      gap: 8px;
+      gap: 0.4rem;
     }
 
-    .contact-email {
-      font-size: 14px;
+    .contact-details a {
       font-weight: 500;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 11px;
-      border-radius: 999px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.7);
-      width: fit-content;
-      margin-top: 2px;
+      text-decoration: underline;
+      text-decoration-color: rgba(226, 232, 240, 0.7);
+      text-decoration-thickness: 1px;
+      text-underline-offset: 3px;
     }
 
-    .contact-email span.icon {
-      font-size: 15px;
-      color: var(--accent);
-    }
-
-    .contact-form {
-      border-radius: var(--radius-lg);
-      padding: 13px;
-      background: rgba(15, 23, 42, 0.96);
-      border: 1px solid rgba(148, 163, 184, 0.5);
-      display: grid;
-      gap: 10px;
-    }
-
-    .form-row {
-      display: grid;
-      gap: 8px;
-      font-size: 12px;
-    }
-
-    .form-label {
-      color: var(--muted);
-    }
-
-    .form-input,
-    .form-textarea {
-      border-radius: 11px;
-      border: 1px solid rgba(55, 65, 81, 0.8);
-      background: #020617;
-      padding: 8px 10px;
-      color: var(--text);
-      font-size: 13px;
-      outline: none;
-      transition: border-color 0.12s ease, box-shadow 0.12s ease, background 0.12s ease;
-    }
-
-    .form-input::placeholder,
-    .form-textarea::placeholder {
-      color: #6b7280;
-    }
-
-    .form-input:focus,
-    .form-textarea:focus {
-      border-color: var(--accent);
-      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.8);
-      background: #020617;
-    }
-
-    .form-textarea {
-      resize: vertical;
-      min-height: 80px;
-      max-height: 160px;
-    }
-
-    .form-footer {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 8px;
-      margin-top: 4px;
-      font-size: 11px;
-      color: var(--muted);
-    }
-
-    .form-note {
-      opacity: 0.9;
-    }
-
-    .btn-small {
-      padding: 7px 12px;
-      font-size: 12px;
-    }
-
-    /* FOOTER */
-    .footer {
-      max-width: var(--max-width);
-      width: 100%;
-      margin: 8px auto 0;
-      padding: 8px 6px 0;
-      border-top: 1px solid rgba(30, 64, 175, 0.7);
+    .contact-pill-row {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 8px;
-      justify-content: space-between;
-      font-size: 11px;
-      color: var(--muted);
+      gap: 0.4rem;
+      margin-top: 0.45rem;
     }
 
-    .footer span strong {
-      color: #e5e7eb;
+    .contact-pill {
+      font-size: 0.74rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      padding: 0.26rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(15, 23, 42, 0.9);
+      background: rgba(15, 23, 42, 0.92);
+      color: var(--text-muted);
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(15, 23, 42, 1);
+      padding: 1.4rem 0 2rem;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-row span.highlight {
+      color: var(--accent1);
     }
 
     .footer-links {
       display: flex;
-      gap: 10px;
+      gap: 0.9rem;
       flex-wrap: wrap;
     }
 
     .footer-links a {
-      opacity: 0.8;
+      text-decoration: none;
+      color: var(--text-muted);
     }
 
     .footer-links a:hover {
-      opacity: 1;
-      color: var(--accent);
+      color: var(--text-main);
     }
 
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      .nav {
-        border-radius: 24px;
+    /* Responsive */
+
+    @media (max-width: 960px) {
+      .hero-layout {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-right {
+        order: -1;
+      }
+
+      .sweatpass-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .apps-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-card {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    @media (max-width: 720px) {
+      .navbar-inner {
+        padding: 0.8rem 0;
       }
 
       .nav-links {
         display: none;
       }
 
-      .hero-grid {
-        grid-template-columns: minmax(0, 1fr);
+      .nav-toggle {
+        display: flex;
       }
 
-      .hero-left {
-        order: -1;
+      .nav-links.mobile-open {
+        display: flex;
+        position: absolute;
+        inset: 100% 0 auto 0;
+        background: rgba(2, 6, 23, 0.97);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.9);
+        padding: 0.9rem 1.25rem 1rem;
+        flex-direction: column;
+        gap: 0.85rem;
       }
 
-      .feature-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .nav-links.mobile-open .nav-cta {
+        width: fit-content;
+      }
+
+      .hero {
+        margin-top: 1.3rem;
+      }
+
+      main {
+        padding-top: 1.8rem;
       }
 
       .apps-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-columns: minmax(0, 1fr);
       }
 
-      #about,
-      #contact {
-        grid-template-columns: minmax(0, 1fr);
+      .contact-card {
+        padding: 1.2rem 1.2rem 1.3rem;
       }
     }
 
-    @media (max-width: 640px) {
-      .page {
-        padding-inline: 14px;
-      }
-
-      section {
-        padding: 18px 15px 19px;
-        border-radius: 20px;
-      }
-
-      .hero-lead {
-        font-size: 13px;
-      }
-
-      .feature-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .apps-grid {
-        grid-template-columns: minmax(0, 1fr);
-      }
-
-      .footer {
-        flex-direction: column;
-        align-items: flex-start;
+    @media (max-width: 480px) {
+      .banner-media img {
+        max-height: 220px;
       }
     }
   </style>
 </head>
+
 <body>
   <div class="page">
-    <header class="page-inner">
-      <nav class="nav">
-        <div class="nav-left">
-          <div class="logo-pill">
-            <span>Cx</span>
+    <!-- NAVBAR -->
+    <header class="navbar">
+      <div class="container navbar-inner">
+        <a href="#top" class="brand">
+          <div class="brand-mark" aria-hidden="true"></div>
+          <div>
+            <div class="brand-text-main">Codenexx</div>
+            <div class="brand-text-sub">App Studio</div>
           </div>
-          <div class="brand-text">
-            <span class="brand-text__name">Codenexx</span>
-            <span class="brand-text__tagline">Habit-first product studio</span>
-          </div>
-        </div>
-        <div class="nav-links">
+        </a>
+
+        <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+          ☰
+        </button>
+
+        <nav class="nav-links" id="navLinks">
           <a href="#sweatpass">SweatPass</a>
-          <a href="#apps">Our Apps</a>
+          <a href="#apps">Products</a>
           <a href="#about">About</a>
           <a href="#contact">Contact</a>
-        </div>
-        <a href="#contact" class="nav-cta">
-          <span class="icon">📮</span>
-          <span>Talk to us</span>
-        </a>
-      </nav>
+          <a href="#contact" class="nav-cta">
+            <span class="icon">✉️</span>
+            <span>hello@mewguys.com</span>
+          </a>
+        </nav>
+      </div>
     </header>
 
-    <main class="page-inner">
-      <!-- SWEATPASS FEATURED HERO -->
-      <section id="sweatpass">
-        <div class="section-header">
-          <div>
-            <div class="section-title">
-              <span>Featured • SweatPass</span>
-              <span class="section-pill">New</span>
-            </div>
-            <p class="section-subtitle">
-              Turn screen time into workout time. Your apps unlock only when you move.
-            </p>
-          </div>
-        </div>
+    <main id="top">
+      <div class="container">
+        <!-- HERO / SWEATPASS BANNER -->
+        <section class="hero" id="sweatpass">
+          <div class="hero-layout">
+            <!-- Text side -->
+            <div class="hero-left">
+              <div class="hero-copy-eyebrow">Product-first app development studio</div>
+              <h1 class="hero-title">
+                Building
+                <span class="hero-gradient-text">apps that earn attention</span>,
+                not just installs.
+              </h1>
+              <p class="hero-subtitle">
+                Codenexx designs and ships apps that change behaviour. From fitness-powered
+                digital wellbeing to India-first AI tools, we build products that people keep
+                coming back to.
+              </p>
 
-        <div class="hero-grid">
-          <!-- LEFT: IMAGE SLOT -->
-          <div class="hero-left">
-            <div class="hero-left-inner">
-              <div class="hero-tag">
-                <span class="hero-tag-dot"></span>
-                <span>Latest launch · SweatPass</span>
+              <div class="hero-meta">
+                <div class="pill">
+                  <span>🔥</span>
+                  <span><strong>SweatPass</strong> · Flagship fitness &amp; focus app</span>
+                </div>
+                <div class="pill">
+                  <span>🚀</span>
+                  <span>Launched products: SweatPass, BharatGPT, Stakewise, ThinkMap</span>
+                </div>
               </div>
-              <img
-                class="hero-image"
-                src="https://play-lh.googleusercontent.com/ryPyAqrCRPwzMIHvQLhgjocNdMcbSNayyGCyHI8Orrw7zvEJA86IsP3jq7mp3SwOXQXqArO0LfCRZseuOr2OnEs=w5120-h2880-rw"
-                alt="SweatPass app preview"
-              />
-            </div>
-          </div>
 
-          <!-- RIGHT: COPY -->
-          <div class="hero-right">
-            <div class="badge-row">
-              <span class="badge badge-highlight">Digital wellbeing + fitness</span>
-              <span class="badge">Screen time that you earn</span>
-            </div>
-
-            <h1 class="hero-title">
-              SweatPass –
-              <span class="gradient">unlock your apps with workouts</span>
-            </h1>
-
-            <p class="hero-lead">
-              SweatPass connects your screen time to real movement. Choose the apps that distract you,
-              let your minutes run down, and unlock them again only by completing quick, guided
-              workouts using AI pose tracking. No wearables, no guilt, just discipline through action.
-            </p>
-
-            <div class="hero-keypoints">
-              <div><strong>Apps become the reward.</strong> Instagram, YouTube, games, or anything you
-                pick only stay unlocked while you have minutes left.</div>
-              <div><strong>Workouts refill minutes.</strong> Push-ups, squats, jumping jacks, planks
-                and more – tracked in real time via your camera.</div>
-              <div>
-                <strong>Real app locking that sticks.</strong> Accessibility-based controls on Android
-                make bypassing hard and habit-building easy.
+              <div class="hero-cta-row">
+                <!-- TODO: Replace # with actual store URL when ready -->
+                <a href="#" class="btn-primary">
+                  <span>View SweatPass on the store</span>
+                  <span class="icon">↗</span>
+                </a>
+                <a href="#apps" class="btn-ghost">
+                  <span class="icon">📱</span>
+                  <span>Explore all Codenexx apps</span>
+                </a>
               </div>
-            </div>
 
-            <div class="hero-actions">
-              <a href="#" class="btn btn-primary">
-                <span>Get SweatPass</span>
-                <span class="btn-icon">➜</span>
-              </a>
-              <a href="#apps" class="btn btn-ghost">
-                <span>Explore our other apps</span>
-              </a>
-            </div>
-
-            <div class="hero-meta">
-              <span class="hero-meta-item">
+              <div class="hero-footnote">
+                <span>💡 Built for students, professionals &amp; creators.</span>
                 <span class="dot"></span>
-                <span>Works on Android (iOS coming soon)</span>
-              </span>
-              <span class="hero-meta-item">
-                ⏱️ Time as a currency · workouts generate minutes
-              </span>
-              <span class="hero-meta-item">
-                🔒 Privacy-first – checks which app is on screen, not your content
-              </span>
+                <span>Apps that blend <strong>behaviour design</strong> with <strong>clean UI</strong>.</span>
+              </div>
+
+              <div class="hero-badge-row">
+                <div class="hero-badge">Mobile-first UX</div>
+                <div class="hero-badge">AI + system-level integrations</div>
+                <div class="hero-badge">Built in India · used globally</div>
+              </div>
             </div>
 
-            <div class="feature-grid">
-              <div class="feature-card">
-                <div class="feature-label">Habit loop</div>
-                <div class="feature-title">Screen time you earn</div>
-                <p class="feature-desc">
-                  Minutes count down while using selected apps. When they hit zero,
-                  SweatPass locks those apps until you move.
-                </p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-label">AI workouts</div>
-                <div class="feature-title">Camera-based pose tracking</div>
-                <p class="feature-desc">
-                  No wearables needed. SweatPass tracks reps through the camera and
-                  instantly adds minutes when you finish a set.
-                </p>
-              </div>
-              <div class="feature-card">
-                <div class="feature-label">For real life</div>
-                <div class="feature-title">Built for students & pros</div>
-                <p class="feature-desc">
-                  Great for anyone who wants less mindless scrolling and more
-                  intentional focus, without feeling restricted.
-                </p>
-              </div>
+            <!-- Banner card with SweatPass image on left (top on mobile) -->
+            <div class="hero-right">
+              <article class="banner-card" aria-label="SweatPass banner">
+                <div class="banner-media">
+                  <img
+                    src="https://play-lh.googleusercontent.com/ryPyAqrCRPwzMIHvQLhgjocNdMcbSNayyGCyHI8Orrw7zvEJA86IsP3jq7mp3SwOXQXqArO0LfCRZseuOr2OnEs=w5120-h2880-rw"
+                    alt="SweatPass app preview"
+                  />
+                  <div class="banner-tag">
+                    <span class="dot"></span>
+                    <span>Latest Launch · SweatPass</span>
+                  </div>
+                </div>
+
+                <div class="banner-content">
+                  <div class="banner-title-row">
+                    <h2 class="banner-title">
+                      <span class="highlight">SweatPass</span>
+                      <span>· Turn Screen Time Into Workout Time</span>
+                    </h2>
+                    <span class="banner-chip">Fitness × Digital Wellbeing</span>
+                  </div>
+
+                  <p class="banner-desc">
+                    SweatPass links your screen time to movement. You choose distracting apps,
+                    get a daily minute balance, and earn more minutes only by finishing real
+                    workouts the app tracks with AI pose detection.
+                  </p>
+
+                  <div class="banner-meta-row">
+                    <div class="banner-bullets">
+                      <span class="banner-bullet">App locking that actually works</span>
+                      <span class="banner-bullet">AI camera-based rep counting</span>
+                      <span class="banner-bullet">Time becomes a currency you earn</span>
+                    </div>
+                    <a href="#sweatpass-details" class="banner-cta">
+                      <span>See how SweatPass works</span>
+                      <span class="icon">↓</span>
+                    </a>
+                  </div>
+                </div>
+              </article>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <!-- OTHER APPS -->
-      <section id="apps">
-        <div class="section-header">
-          <div>
-            <div class="section-title">
-              <span>Our Products</span>
-            </div>
-            <p class="section-subtitle">
-              A small, focused stack of apps around thinking, discipline, incentives and better habits.
-            </p>
-          </div>
-          <span class="section-pill">Codenexx Studio</span>
-        </div>
-
-        <div class="apps-grid">
-          <!-- BharatGPT -->
-          <article class="app-card">
-            <div class="app-header">
-              <div class="app-logo">
-                <img
-                  src="https://play-lh.googleusercontent.com/PQQckoXi_Eze-tzOlfbC1C48tUv6MiA-53uGVyOLZx6QewgzhQ5O5E7skqietQg3gdHY"
-                  alt="BharatGPT logo"
-                />
-              </div>
-              <div>
-                <div class="app-name">
-                  <span>BharatGPT</span>
-                  <span class="app-chip">AI toolkit</span>
-                </div>
-                <div class="app-meta">India-first AI assistant</div>
-              </div>
-            </div>
-            <p class="app-desc">
-              BharatGPT is an India-focused AI companion built for real-world use cases – from
-              everyday chat to mind maps, research, health checkups and more, tuned to the way
-              people in India actually search, write and work.
-            </p>
-            <div class="app-actions">
-              <span class="app-link">🇮🇳 Local context</span>
-              <span class="app-link">Tools for students & founders</span>
-            </div>
-          </article>
-
-          <!-- Stakewise -->
-          <article class="app-card">
-            <div class="app-header">
-              <div class="app-logo">
-                <img
-                  src="https://play-lh.googleusercontent.com/yx_-ra767805sbtxSPkk6QjI2eyYUGauC9A_ZBlG_lKvza-HanW2ujvBLCTDoL3THeO15RP4A4Eyt0qngFwYmw=w240-h480-rw"
-                  alt="Stakewise logo"
-                />
-              </div>
-              <div>
-                <div class="app-name">
-                  <span>Stakewise</span>
-                  <span class="app-chip">Ad-for-equity</span>
-                </div>
-                <div class="app-meta">Funding through attention</div>
-              </div>
-            </div>
-            <p class="app-desc">
-              Stakewise experiments with a new model: startups exchange small slices of equity for
-              performance-driven ad inventory, aligning incentives between founders, creators and
-              investors.
-            </p>
-            <div class="app-actions">
-              <span class="app-link">🤝 Equity for ads</span>
-              <span class="app-link">Early-stage experiments</span>
-            </div>
-          </article>
-
-          <!-- ThinkMap -->
-          <article class="app-card">
-            <div class="app-header">
-              <div class="app-logo">
-                <img
-                  src="https://play-lh.googleusercontent.com/4wku97uqeoVBiocVpBCJaQsz31wqk-j7e-X4KUogvFaxmG7z2dp7alJWf_vQpS9V5-Ao_UuYxzVhsGYAWmES3vA=w480-h960-rw"
-                  alt="ThinkMap logo"
-                />
-              </div>
-              <div>
-                <div class="app-name">
-                  <span>ThinkMap</span>
-                  <span class="app-chip">Decision engine</span>
-                </div>
-                <div class="app-meta">Turn problems into maps</div>
-              </div>
-            </div>
-            <p class="app-desc">
-              ThinkMap turns messy decisions into clear decision trees. Break down problems, branch
-              scenarios, and see trade-offs visually so you can move from “stuck” to “decided”.
-            </p>
-            <div class="app-actions">
-              <span class="app-link">🧠 Structured thinking</span>
-              <span class="app-link">Mind maps + AI</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- ABOUT CODENEXX -->
-      <section id="about">
-        <div>
+        <!-- SWEATPASS DETAILS -->
+        <section id="sweatpass-details">
           <div class="section-header">
-            <div>
-              <div class="section-title">About Codenexx</div>
+            <div class="section-eyebrow">Flagship product</div>
+            <div class="section-title-row">
+              <h2 class="section-title">SweatPass – Screen time you have to earn</h2>
               <p class="section-subtitle">
-                We build small, sharp products that nudge people towards better habits – one tap,
-                one rep, one decision at a time.
+                Instead of blocking your phone or nagging you, SweatPass uses movement as
+                the reward system. Minutes go down while you scroll, and refill only when
+                you work out.
               </p>
             </div>
           </div>
 
-          <div class="about-body">
-            <p>
-              Codenexx is an app studio focused on behaviour, not just features. Each product we
-              ship is designed around a specific loop: move to unlock your screen, think clearly
-              before you decide, match incentives instead of chasing vanity metrics.
-            </p>
-            <p>
-              We prototype quickly, test with real users and obsess over the tiny interactions that
-              make discipline feel rewarding instead of punishing. Our stack spans AI, system-level
-              controls and clean, minimal interfaces.
-            </p>
-            <div class="pill-row">
-              <span class="pill">• Mobile-first product studio</span>
-              <span class="pill">• AI, wellbeing & productivity</span>
-              <span class="pill">• Built in India, for a global audience</span>
-            </div>
-          </div>
-        </div>
+          <div class="sweatpass-grid">
+            <article class="card">
+              <h3>How SweatPass works</h3>
+              <p>
+                SweatPass connects your most distracting apps to your workouts. You pick
+                which apps to lock — Instagram, YouTube, games, anything.
+              </p>
+              <p>
+                The app gives you a balance of <strong>Screen Time Minutes</strong>. When
+                you use a locked app, those minutes count down. Hit zero, and SweatPass
+                instantly locks those apps.
+              </p>
+              <p>
+                To unlock them again, you have to complete a workout inside SweatPass. The
+                camera tracks your movement, counts reps automatically, and converts real
+                effort into new minutes.
+              </p>
 
-        <aside class="stat-card">
-          <div class="stat-kicker">Product philosophy</div>
-          <div class="stat-number">Habits &nbsp;>&nbsp; Hacks</div>
-          <div class="stat-text">
-            We don’t build “yet another app”. We build systems that reward consistent action –
-            whether that’s doing one more push-up, making one better decision, or spending ten less
-            minutes doomscrolling.
-          </div>
-          <div class="stat-tags">
-            <span class="stat-tag">Tight feedback loops</span>
-            <span class="stat-tag">Minimal UI</span>
-            <span class="stat-tag">Real constraints</span>
-          </div>
-        </aside>
-      </section>
+              <ul>
+                <li>Time becomes a currency you earn, not something you lose control over.</li>
+                <li>Habits form naturally because workouts are tied to daily phone usage.</li>
+                <li>Ideal for students, professionals, and anyone battling screen addiction.</li>
+              </ul>
+            </article>
 
-      <!-- CONTACT -->
-      <section id="contact">
-        <div>
+            <article class="card">
+              <div class="muted-label">Workout engine</div>
+              <div class="card-tag-row">
+                <span class="card-tag">AI pose tracking (camera)</span>
+                <span class="card-tag">No wearables needed</span>
+              </div>
+              <p>
+                SweatPass has built-in, camera-tracked workouts. Just place your phone,
+                follow the moves, and let the AI handle rep counting.
+              </p>
+
+              <div class="muted-label">Available workouts</div>
+              <div class="two-col-list">
+                <span>• Push-ups</span>
+                <span>• Squats</span>
+                <span>• Jumping jacks</span>
+                <span>• Plank</span>
+                <span>• More moves coming soon</span>
+                <span>• Support for custom workouts</span>
+              </div>
+
+              <p style="margin-top:0.8rem;">
+                Each completed workout instantly adds new minutes to your Screen Time
+                balance, so you feel rewarded the moment you finish moving.
+              </p>
+
+              <div class="muted-label" style="margin-top:0.9rem;">App locking &amp; privacy</div>
+              <ul>
+                <li>Uses system-level controls (Android Accessibility) to detect and block apps.</li>
+                <li>Only checks which app is on screen — never reads messages or notifications.</li>
+                <li>Designed as a privacy-first architecture for both Android and iOS.</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- PRODUCT SUITE -->
+        <section id="apps">
           <div class="section-header">
-            <div>
-              <div class="section-title">Contact</div>
+            <div class="section-eyebrow">Product suite</div>
+            <div class="section-title-row">
+              <h2 class="section-title">Codenexx apps</h2>
               <p class="section-subtitle">
-                Building something around digital wellbeing, AI or behaviour design? We’d love to
-                hear from you.
+                Beyond SweatPass, we build tools that help people think, learn, invest and
+                stay focused — starting with users in India and scaling globally.
               </p>
             </div>
           </div>
 
-          <div class="contact-text">
-            <p>
-              For collaborations, partnerships, press or investor conversations, reach out directly
-              via email. We read every message that comes in.
-            </p>
-            <a href="mailto:hello@mewguys.com" class="contact-email">
-              <span class="icon">✉️</span>
-              <span>hello@mewguys.com</span>
-            </a>
-            <p>
-              Share a short note about who you are, what you’re building, and how you think our
-              products or experience could help.
-            </p>
-          </div>
-        </div>
+          <div class="apps-grid">
+            <!-- SweatPass card -->
+            <article class="app-card">
+              <div class="app-header">
+                <div style="display:flex;align-items:center;gap:0.55rem;">
+                  <div class="app-icon-wrap">
+                    <img
+                      src="https://play-lh.googleusercontent.com/ryPyAqrCRPwzMIHvQLhgjocNdMcbSNayyGCyHI8Orrw7zvEJA86IsP3jq7mp3SwOXQXqArO0LfCRZseuOr2OnEs=w5120-h2880-rw"
+                      alt="SweatPass icon"
+                    />
+                  </div>
+                  <div>
+                    <div class="app-name">SweatPass</div>
+                    <div style="font-size:0.75rem;color:var(--text-muted);">
+                      Fitness · Digital Wellbeing
+                    </div>
+                  </div>
+                </div>
+                <span class="app-pill">New</span>
+              </div>
+              <p class="app-desc">
+                Lock your distracting apps behind real workouts. Earn screen time minutes
+                through AI-tracked movement and build discipline through action.
+              </p>
+              <div class="app-meta">
+                <span>AI pose tracking · App locking</span>
+                <span>Android &amp; iOS</span>
+              </div>
+            </article>
 
-        <div class="contact-form">
-          <div class="form-row">
-            <label class="form-label" for="name">Name</label>
-            <input class="form-input" id="name" type="text" placeholder="Your name" />
+            <!-- BharatGPT -->
+            <article class="app-card">
+              <div class="app-header">
+                <div style="display:flex;align-items:center;gap:0.55rem;">
+                  <div class="app-icon-wrap">
+                    <img
+                      src="https://play-lh.googleusercontent.com/PQQckoXi_Eze-tzOlfbC1C48tUv6MiA-53uGVyOLZx6QewgzhQ5O5E7skqietQg3gdHY"
+                      alt="BharatGPT logo"
+                    />
+                  </div>
+                  <div>
+                    <div class="app-name">BharatGPT</div>
+                    <div style="font-size:0.75rem;color:var(--text-muted);">
+                      India-first AI assistant
+                    </div>
+                  </div>
+                </div>
+                <span class="app-pill">AI</span>
+              </div>
+              <p class="app-desc">
+                An India-centric AI assistant tuned for local context — from everyday
+                queries to learning, productivity, and idea exploration.
+              </p>
+              <div class="app-meta">
+                <span>Multi-category tools</span>
+                <span>Built for Indian users</span>
+              </div>
+            </article>
+
+            <!-- Stakewise -->
+            <article class="app-card">
+              <div class="app-header">
+                <div style="display:flex;align-items:center;gap:0.55rem;">
+                  <div class="app-icon-wrap">
+                    <img
+                      src="https://play-lh.googleusercontent.com/yx_-ra767805sbtxSPkk6QjI2eyYUGauC9A_ZBlG_lKvza-HanW2ujvBLCTDoL3THeO15RP4A4Eyt0qngFwYmw=w240-h480-rw"
+                      alt="Stakewise logo"
+                    />
+                  </div>
+                  <div>
+                    <div class="app-name">Stakewise</div>
+                    <div style="font-size:0.75rem;color:var(--text-muted);">
+                      Equity-for-ads platform
+                    </div>
+                  </div>
+                </div>
+                <span class="app-pill">Startup Tools</span>
+              </div>
+              <p class="app-desc">
+                A new way for startups and brands to trade equity for attention, campaigns
+                and distribution in a structured, trackable way.
+              </p>
+              <div class="app-meta">
+                <span>Growth &amp; funding experiments</span>
+                <span>Beta in progress</span>
+              </div>
+            </article>
+
+            <!-- ThinkMap -->
+            <article class="app-card">
+              <div class="app-header">
+                <div style="display:flex;align-items:center;gap:0.55rem;">
+                  <div class="app-icon-wrap">
+                    <img
+                      src="https://play-lh.googleusercontent.com/4wku97uqeoVBiocVpBCJaQsz31wqk-j7e-X4KUogvFaxmG7z2dp7alJWf_vQpS9V5-Ao_UuYxzVhsGYAWmES3vA=w480-h960-rw"
+                      alt="ThinkMap logo"
+                    />
+                  </div>
+                  <div>
+                    <div class="app-name">ThinkMap</div>
+                    <div style="font-size:0.75rem;color:var(--text-muted);">
+                      Structured thinking app
+                    </div>
+                  </div>
+                </div>
+                <span class="app-pill">Productivity</span>
+              </div>
+              <p class="app-desc">
+                Turn messy thoughts into clear decision trees and mind maps. Built for
+                founders, students and problem-solvers who think visually.
+              </p>
+              <div class="app-meta">
+                <span>Decision trees · Mind maps</span>
+                <span>AI-assisted flow</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <!-- ABOUT CODENEXX -->
+        <section id="about">
+          <div class="section-header">
+            <div class="section-eyebrow">About Codenexx</div>
+            <div class="section-title-row">
+              <h2 class="section-title">A studio obsessed with behaviour, not just features</h2>
+              <p class="section-subtitle">
+                We ship products that people actually use — crafted with crisp UI, tight
+                feedback loops and a ruthless focus on real-world behaviour change.
+              </p>
+            </div>
           </div>
 
-          <div class="form-row">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-input" id="email" type="email" placeholder="you@example.com" />
+          <div class="about-grid">
+            <article class="card">
+              <h3>How we build</h3>
+              <p>
+                Every Codenexx product starts from a behaviour we want to upgrade:
+                mindless scrolling, scattered thinking, unfocused learning, inefficient
+                growth. Then we design tight loops that reward better choices.
+              </p>
+              <p>
+                We care deeply about how the product feels in the hand — from micro-copy
+                and iconography to motion, loading states and error messages.
+              </p>
+              <ul class="stack-list">
+                <li>
+                  Fast iteration on real user feedback, not vanity metrics.
+                </li>
+                <li>
+                  System-level integrations (Accessibility, Screen Time, AI) used
+                  responsibly.
+                </li>
+                <li>
+                  Clean, opinionated UX that stays out of the way and lets the
+                  behaviour design do the heavy lifting.
+                </li>
+              </ul>
+            </article>
+
+            <article class="card">
+              <h3>What we care about</h3>
+              <p>
+                Codenexx is a small, product-obsessed team. We’d rather ship one app that
+                truly changes a habit than ten that just look good on screenshots.
+              </p>
+              <div class="muted-label" style="margin-top:0.4rem;">Focus areas</div>
+              <ul class="stack-list">
+                <li>Digital wellbeing &amp; fitness loops (SweatPass).</li>
+                <li>India-first AI experiences (BharatGPT).</li>
+                <li>Decision and thinking tools (ThinkMap).</li>
+                <li>New models for startup attention and funding (Stakewise).</li>
+              </ul>
+            </article>
+          </div>
+        </section>
+
+        <!-- CONTACT -->
+        <section id="contact">
+          <div class="section-header">
+            <div class="section-eyebrow">Contact</div>
+            <div class="section-title-row">
+              <h2 class="section-title">Let’s talk builds, not just ideas</h2>
+              <p class="section-subtitle">
+                Reach out if you’re interested in partnering, investing, or just want to
+                chat about where these products are headed.
+              </p>
+            </div>
           </div>
 
-          <div class="form-row">
-            <label class="form-label" for="message">Message</label>
-            <textarea
-              class="form-textarea"
-              id="message"
-              placeholder="Tell us a bit about your idea or question..."
-            ></textarea>
-          </div>
+          <div class="contact-card">
+            <div>
+              <h3>Get in touch with Codenexx</h3>
+              <p>
+                For product conversations, collaborations, or press, drop us a line and
+                we’ll get back with something concrete — not a boilerplate deck.
+              </p>
+              <div class="contact-pill-row">
+                <div class="contact-pill">Product partnerships</div>
+                <div class="contact-pill">Investors &amp; operators</div>
+                <div class="contact-pill">Media &amp; creators</div>
+              </div>
+            </div>
 
-          <div class="form-footer">
-            <span class="form-note">This form is a visual placeholder only.</span>
-            <button type="button" class="btn btn-primary btn-small">
-              <span>Copy email</span>
-            </button>
+            <div class="contact-details">
+              <div>
+                <span style="opacity:0.85;">Primary email:</span><br />
+                <a href="mailto:hello@mewguys.com">hello@mewguys.com</a>
+              </div>
+              <div>
+                <span style="opacity:0.85;">Location:</span><br />
+                <span>Remote-first · Built from India</span>
+              </div>
+              <div>
+                <span style="opacity:0.85;">What to include:</span><br />
+                <span>Short intro, what you’re interested in, and how we can help.</span>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </div>
     </main>
 
-    <footer class="footer">
-      <span>© <strong>Codenexx</strong>. Building apps for better habits.</span>
-      <div class="footer-links">
-        <a href="#sweatpass">SweatPass</a>
-        <a href="#apps">BharatGPT · Stakewise · ThinkMap</a>
-        <a href="#contact">Contact</a>
+    <footer>
+      <div class="container footer-row">
+        <div>
+          © <span id="year"></span> <span class="highlight">Codenexx</span>. All rights reserved.
+        </div>
+        <div class="footer-links">
+          <span>Apps: SweatPass · BharatGPT · Stakewise · ThinkMap</span>
+        </div>
       </div>
     </footer>
   </div>
 
   <script>
-    // Small enhancement: “Copy email” button copies your email address to clipboard
-    (function () {
-      const btn = document.querySelector(".btn-small");
-      if (!btn) return;
-      btn.addEventListener("click", function () {
-        const email = "hello@mewguys.com";
-        if (navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(email).then(
-            function () {
-              btn.textContent = "Copied!";
-              setTimeout(function () {
-                btn.textContent = "Copy email";
-              }, 2000);
-            },
-            function () {
-              window.location.href = "mailto:" + email;
-            }
-          );
-        } else {
-          window.location.href = "mailto:" + email;
-        }
+    // Mobile nav toggle
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+    navToggle?.addEventListener("click", () => {
+      navLinks.classList.toggle("mobile-open");
+    });
+
+    // Close mobile nav when clicking a link
+    navLinks?.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("mobile-open");
       });
-    })();
+    });
+
+    // Current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
