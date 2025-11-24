@@ -1,10 +1,348 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>My Test Site</title>
-  </head>
-  <body>
-    <h1>Hello from GitHub Pages!</h1>
-    <p>This is a simple HTML site hosted for free.</p>
-  </body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Codenexx - Building the Future of Digital Wellness & Utility</title>
+    <style>
+        /* CSS Reset and Variables */
+        :root {
+            --primary-color: #007BFF; /* A clean blue for links/accents */
+            --secondary-color: #6c757d; /* Muted gray for secondary text */
+            --background-dark: #1e1e1e; /* Deep dark background */
+            --text-light: #ffffff; /* White text for contrast */
+            --card-background: #2a2a2a; /* Slightly lighter dark for cards */
+            --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            --max-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-family);
+            background-color: var(--background-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 100%;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .text-center { text-align: center; }
+
+        /* Header / Navigation */
+        .header {
+            background-color: var(--card-background);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .nav-links a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero / Banner Section */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--background-dark), #111);
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 50vh;
+            border-bottom: 5px solid var(--primary-color);
+        }
+
+        .banner-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .banner-text h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .banner-text p {
+            font-size: 1.2em;
+            color: var(--secondary-color);
+        }
+
+        .app-image-slot {
+            flex-shrink: 0;
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+            border: 3px solid var(--primary-color);
+        }
+
+        .app-image-slot img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 80px 0;
+        }
+
+        h2 {
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--card-background);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        /* SweatPass Features */
+        #sweatpass {
+            background-color: var(--background-dark);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .feature-card {
+            background-color: var(--card-background);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-left: 5px solid var(--primary-color);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 123, 255, 0.2);
+        }
+
+        .feature-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-size: 1.3em;
+        }
+
+        /* Other Apps Section */
+        #apps {
+            background-color: #1a1a1a;
+        }
+
+        .app-list {
+            display: flex;
+            justify-content: space-around;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .app-card {
+            background-color: var(--card-background);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .app-icon-placeholder {
+            width: 80px;
+            height: 80px;
+            background-color: var(--secondary-color);
+            border-radius: 15px;
+            margin: 0 auto 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+        }
+        
+        /* Contact Section */
+        #contact {
+            background-color: var(--background-dark);
+            text-align: center;
+        }
+
+        .contact-info p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .contact-info a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: opacity 0.3s;
+        }
+
+        .contact-info a:hover {
+            opacity: 0.8;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--card-background);
+            padding: 20px 0;
+            text-align: center;
+            border-top: 3px solid var(--primary-color);
+        }
+
+        .footer p {
+            color: var(--secondary-color);
+            font-size: 0.9em;
+        }
+
+    </style>
+</head>
+<body>
+
+    <header class="header" id="home">
+        <div class="container nav-content">
+            <a href="#home" class="logo">Codenexx</a>
+            <nav class="nav-links">
+                <a href="#sweatpass">SweatPass</a>
+                <a href="#apps">Our Apps</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero-banner">
+        <div class="container banner-content">
+            <div class="app-image-slot">
+                <img src="https://play-lh.googleusercontent.com/ryPyAqrCRPwzMIHvQLhgjocNdMcbSNayyGCyHI8Orrw7zvEJA86IsP3jq7mp3SwOXQXqArO0LfCRZseuOr2OnEs=w5120-h2880-rw" alt="SweatPass Latest App Image" loading="lazy">
+            </div>
+            <div class="banner-text">
+                <p style="color: #fff; margin-bottom: 5px;">Featured Launch</p>
+                <h1>SweatPass</h1>
+                <h2>Turn Screen Time Into Workout Time</h2>
+                <p>SweatPass is the revolutionary digital wellbeing and fitness app that **rewards activity** by linking access to your distracting apps directly to completing a workout. Earn your screen time—don't just restrict it.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="sweatpass" class="container">
+        <h2 class="text-center">How SweatPass Builds Discipline Through Action</h2>
+        <p class="text-center" style="font-size: 1.1em; max-width: 800px; margin: 20px auto 50px;">
+            It creates a positive habit loop: Your favorite apps become the **reward currency** you generate only by being active. This works better than traditional restrictive screen time methods.
+        </p>
+
+        <div class="feature-grid">
+            <div class="feature-card">
+                <h4>Time as Currency</h4>
+                <p>Choose distracting apps (Instagram, games, etc.). Using them depletes your daily Screen Time Minutes. Hit zero, and the apps lock instantly.</p>
+            </div>
+            <div class="feature-card">
+                <h4>Workouts Generate Minutes</h4>
+                <p>Unlock your apps instantly by completing a workout *inside* SweatPass. This flips the script: screen time is **earned**, not lost.</p>
+            </div>
+            <div class="feature-card">
+                <h4>AI Pose Tracking</h4>
+                <p>No equipment or wearable needed. SweatPass uses your phone's camera and AI to accurately track workouts like Push-ups, Squats, and Plank reps automatically.</p>
+            </div>
+            <div class="feature-card">
+                <h4>System-Level Locking</h4>
+                <p>We use robust, privacy-first system controls (like Android's Accessibility service) to enforce the app lock, ensuring the motivation loop is simple and effective.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="apps" class="container">
+        <h2 class="text-center">The Codenexx Portfolio</h2>
+        <p class="text-center" style="font-size: 1.1em; max-width: 800px; margin: 20px auto 50px;">
+            We build innovative software across AI, FinTech, and productivity to solve complex problems and improve daily life.
+        </p>
+
+        <div class="app-list">
+            
+            <div class="app-card">
+                <div class="app-icon-placeholder">🤖</div>
+                <h3>BharatGPT</h3>
+                <p style="color: var(--secondary-color);">An advanced, localized Generative AI platform tailored for the Indian market and languages.</p>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon-placeholder">💰</div>
+                <h3>Stakewise</h3>
+                <p style="color: var(--secondary-color);">A robust, secure FinTech solution for simplified investment tracking and automated asset management.</p>
+            </div>
+
+            <div class="app-card">
+                <div class="app-icon-placeholder">🧠</div>
+                <h3>ThinkMap</h3>
+                <p style="color: var(--secondary-color);">A powerful, clean visual mapping tool for brainstorming complex ideas and organizing project workflows.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container">
+        <h2>Get In Touch</h2>
+        <p style="max-width: 800px; margin: 20px auto 50px; font-size: 1.1em;">
+            Whether you have a partnership inquiry, need technical support for one of our apps, or want to discuss a new venture, we are ready to connect.
+        </p>
+        <div class="contact-info">
+            <p>Email us directly at:</p>
+            <p><a href="mailto:hello@mewguys.com">hello@mewguys.com</a></p>
+            <p style="margin-top: 30px; font-size: 0.9em; color: var(--secondary-color);">
+                Codenexx - Building innovative solutions since 2024.
+            </p>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Codenexx. All Rights Reserved. | Designed with Focus and Discipline.</p>
+        </div>
+    </footer>
+
+</body>
 </html>
