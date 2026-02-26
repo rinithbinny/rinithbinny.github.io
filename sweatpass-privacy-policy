@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SweatPass — Privacy Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #2563eb; /* Trustworthy blue */
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #334155;
+            --text-muted: #64748b;
+            --heading-color: #0f172a;
+            --border-color: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding: 2rem 1rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--card-bg);
+            padding: 3rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .logo {
+            max-width: 120px;
+            border-radius: 20%;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: var(--heading-color);
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .last-updated {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+
+        h2 {
+            color: var(--heading-color);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        h3 {
+            color: var(--heading-color);
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .highlight-box {
+            background-color: #eff6ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .highlight-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem;
+            }
+            .container {
+                padding: 1.5rem;
+                border-radius: 12px;
+            }
+            h1 {
+                font-size: 1.75rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-dldCmHKz18xoOIEYlIpt3bj3bTE76EwCYQ&s" alt="SweatPass Logo" class="logo">
+            <h1>Privacy Policy</h1>
+            <p class="last-updated">Last updated: 24th Nov 2025</p>
+        </header>
+
+        <section>
+            <p>This Privacy Policy explains how <strong>SweatPass</strong> (“we”, “our”, “the App”) collects, uses, and protects your information. SweatPass is designed to help you build healthy digital habits by linking screen time to physical activity. We value your privacy and are committed to keeping your data safe.</p>
+            <p>By using SweatPass, you agree to the practices described in this Privacy Policy.</p>
+        </section>
+
+        <section>
+            <h2>1. Information We Collect</h2>
+            <p>SweatPass collects only the minimum information required to provide its core functionality, handle subscriptions, and serve ads.</p>
+
+            <h3>1.1 App Usage Information</h3>
+            <p>To determine when to lock or unlock selected apps, SweatPass may collect:</p>
+            <ul>
+                <li>The name and package ID of the app currently on screen</li>
+                <li>The list of apps you choose to lock</li>
+            </ul>
+            <p>This information is processed <strong>locally on your device</strong>. SweatPass does not collect or store the content of any app you use.</p>
+
+            <h3>1.2 Camera Data (Workout Tracking)</h3>
+            <p>If you choose to use AI workout tracking:</p>
+            <ul>
+                <li>The camera feed is processed in real time to detect body movements and count reps.</li>
+                <li><strong>No images, videos, or biometric data</strong> are saved, sent to a server, or stored anywhere.</li>
+                <li>All camera processing stays on your device.</li>
+            </ul>
+
+            <h3>1.3 In-App Subscriptions (Pro Pass)</h3>
+            <p>SweatPass offers an optional premium subscription called <strong>pro_pass</strong> (billed monthly). Payment processing is securely handled entirely by the Apple App Store or Google Play Store. We do not collect, process, or store your credit card or billing information. We only receive a secure token to verify your active subscription status to unlock premium features.</p>
+
+            <h3>1.4 Advertising Data (AdMob)</h3>
+            <p>We use Google AdMob to display advertisements in the free version of the App. AdMob may collect and use device identifiers (such as Android Advertising ID or Apple IDFA), IP addresses, and generalized location data to provide personalized or non-personalized ads. You can manage your ad preferences through your device settings.</p>
+
+            <h3>1.5 Optional Analytics</h3>
+            <p>We may collect anonymous, aggregated analytics such as:</p>
+            <ul>
+                <li>App crashes and errors</li>
+                <li>Usage patterns (e.g., number of workouts completed, feature usage)</li>
+            </ul>
+            <p>These analytics contain no personal or sensitive data and help us improve the app.</p>
+
+            <h3>1.6 No Personal Account Required</h3>
+            <p>SweatPass functions entirely without personal identification. It does not require a login, an email address, or a phone number.</p>
+        </section>
+
+        <section>
+            <h2>2. How We Use Your Information</h2>
+            <p>SweatPass uses your data only to:</p>
+            <ul>
+                <li>Detect when a locked app is opened</li>
+                <li>Apply app blocking when minutes reach zero</li>
+                <li>Track workout progress and award screen-time minutes</li>
+                <li>Verify your <strong>pro_pass</strong> subscription status</li>
+                <li>Improve app performance, stability, and user experience</li>
+            </ul>
+            
+            <div class="highlight-box">
+                <strong>We do not:</strong>
+                <ul>
+                    <li>Sell your data</li>
+                    <li>Share your personal workout or usage data with advertisers</li>
+                    <li>Track you across other apps or websites</li>
+                </ul>
+                <p><em>Note: Google AdMob independently collects non-identifiable device data solely for the purpose of serving advertisements, as outlined in Section 1.4.</em></p>
+            </div>
+        </section>
+
+        <section>
+            <h2>3. Android Accessibility Service Disclosure</h2>
+            <p>On Android, SweatPass uses the Accessibility Service solely to:</p>
+            <ul>
+                <li>Detect when your selected apps are opened</li>
+                <li>Display a blocking screen when your screen-time minutes reach zero</li>
+            </ul>
+            <p><strong>SweatPass never uses Accessibility to:</strong></p>
+            <ul>
+                <li>Read text from your screen</li>
+                <li>Access messages, photos, passwords, or personal content</li>
+                <li>Perform actions on your behalf</li>
+                <li>Control your phone outside of the lock screen feature</li>
+            </ul>
+            <p>Accessibility data is not stored, not transmitted, and not shared.</p>
+        </section>
+
+        <section>
+            <h2>4. iOS Screen Time API Disclosure</h2>
+            <p>On iOS, SweatPass uses the Apple Screen Time API only to:</p>
+            <ul>
+                <li>Request permission to manage selected apps</li>
+                <li>Enforce app usage limits based on your workout status</li>
+            </ul>
+            <p>SweatPass has no access to your personal content or activity inside other apps.</p>
+        </section>
+
+        <section>
+            <h2>5. Data Storage and Security</h2>
+            <ul>
+                <li>SweatPass stores all local data (timer, selected apps, settings) <strong>on your device only</strong>.</li>
+                <li>No workout images, camera frames, or biometric data are ever stored.</li>
+                <li>If you uninstall the app, all local data is automatically deleted.</li>
+                <li>We use industry-standard safeguards to protect any optional anonymous analytics collected.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>6. Children’s Privacy</h2>
+            <p>SweatPass is not designed for children under 13. We do not knowingly collect personal information from children.</p>
+        </section>
+
+        <section>
+            <h2>7. Third-Party Services</h2>
+            <p>SweatPass may use third-party services strictly for the following purposes:</p>
+            <ul>
+                <li><strong>Google AdMob:</strong> For displaying advertisements (collects device ad identifiers).</li>
+                <li><strong>Apple App Store / Google Play Store:</strong> For securely processing the monthly <em>pro_pass</em> subscription.</li>
+                <li><strong>Analytics Tools:</strong> For anonymous crash reporting and usage analytics.</li>
+            </ul>
+            <p>Aside from ad identifiers used by AdMob, these services do not receive any personal or sensitive user data from us.</p>
+        </section>
+
+        <section>
+            <h2>8. Your Choices</h2>
+            <p>You control:</p>
+            <ul>
+                <li>Which apps SweatPass is allowed to monitor</li>
+                <li>Whether to enable Accessibility services on Android</li>
+                <li>Whether to allow camera access for workout tracking</li>
+                <li>Whether to share anonymous diagnostics</li>
+                <li>Your ad tracking preferences (via your iOS or Android device settings)</li>
+            </ul>
+            <p>You may revoke permissions at any time in your device settings.</p>
+        </section>
+
+        <section>
+            <h2>9. Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. Updates will be posted within the app or on our website. Continued use of the app after changes indicates your acceptance.</p>
+        </section>
+
+        <section>
+            <h2>10. Contact Us</h2>
+            <p>If you have any questions or requests regarding privacy, contact us at: <a href="mailto:hello@mewguys.com">hello@mewguys.com</a></p>
+        </section>
+    </div>
+
+</body>
+</html>
