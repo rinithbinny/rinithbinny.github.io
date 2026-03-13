@@ -145,7 +145,7 @@
         <header>
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT-dldCmHKz18xoOIEYlIpt3bj3bTE76EwCYQ&s" alt="SweatPass Logo" class="logo">
             <h1>Privacy Policy</h1>
-            <p class="last-updated">Last updated: 24th Nov 2025</p>
+            <p class="last-updated">Last updated: 13th Mar 2026</p>
         </header>
 
         <section>
@@ -165,128 +165,74 @@
             </ul>
             <p>This information is processed <strong>locally on your device</strong>. SweatPass does not collect or store the content of any app you use.</p>
 
-            <h3>1.2 Camera Data (Workout Tracking)</h3>
-            <p>If you choose to use AI workout tracking:</p>
+            <h3>1.2 Workout Tracking Data</h3>
+            <p>If you choose to use AI workout tracking or face exercises:</p>
             <ul>
-                <li>The camera feed is processed in real time to detect body movements and count reps.</li>
-                <li><strong>No images, videos, or biometric data</strong> are saved, sent to a server, or stored anywhere.</li>
-                <li>All camera processing stays on your device.</li>
+                <li>The camera feed is processed in real time to detect body movements or facial landmarks (via google_mlkit_face_detection) to count reps.</li>
+                <li><strong>No images, videos, or face data</strong> are saved, sent to a server, or stored anywhere.</li>
+                <li>All camera processing occurs ephemerally on your device.</li>
             </ul>
 
             <h3>1.3 In-App Subscriptions (Pro Pass)</h3>
-            <p>SweatPass offers an optional premium subscription called <strong>pro_pass</strong> (billed monthly). Payment processing is securely handled entirely by the Apple App Store or Google Play Store. We do not collect, process, or store your credit card or billing information. We only receive a secure token to verify your active subscription status to unlock premium features.</p>
+            <p>SweatPass offers an optional premium subscription called <strong>pro_pass</strong>. Payment processing is securely handled entirely by the Apple App Store or Google Play Store. We do not collect or store your billing information.</p>
 
             <h3>1.4 Advertising Data (AdMob)</h3>
-            <p>We use Google AdMob to display advertisements in the free version of the App. AdMob may collect and use device identifiers (such as Android Advertising ID or Apple IDFA), IP addresses, and generalized location data to provide personalized or non-personalized ads. You can manage your ad preferences through your device settings.</p>
-
-            <h3>1.5 Optional Analytics</h3>
-            <p>We may collect anonymous, aggregated analytics such as:</p>
-            <ul>
-                <li>App crashes and errors</li>
-                <li>Usage patterns (e.g., number of workouts completed, feature usage)</li>
-            </ul>
-            <p>These analytics contain no personal or sensitive data and help us improve the app.</p>
-
-            <h3>1.6 No Personal Account Required</h3>
-            <p>SweatPass functions entirely without personal identification. It does not require a login, an email address, or a phone number.</p>
+            <p>We use Google AdMob to display advertisements. AdMob may collect and use device identifiers and IP addresses to provide ads. You can manage your ad preferences through your device settings.</p>
         </section>
 
         <section>
-            <h2>2. How We Use Your Information</h2>
+            <h2>2. Sensory Data and Camera Usage</h2>
+            <p>SweatPass utilizes the device camera to facilitate physical and facial exercise tracking. Regarding this data:</p>
+            <ul>
+                <li><strong>No Collection:</strong> SweatPass does not collect, harvest, or store face data or biometric identifiers.</li>
+                <li><strong>On-Device Processing:</strong> We use the <code>google_mlkit_face_detection</code> API for real-time analysis of facial movement solely to track exercise progress. This processing happens entirely on your device.</li>
+                <li><strong>No Storage or Retention:</strong> No facial data, images, or video frames are ever written to the device's permanent storage or retained after the exercise session concludes. Frames are discarded immediately after processing.</li>
+                <li><strong>No Third-Party Sharing:</strong> Because no face data is collected or stored, no face data is ever shared with third parties or service providers.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. How We Use Your Information</h2>
             <p>SweatPass uses your data only to:</p>
             <ul>
                 <li>Detect when a locked app is opened</li>
-                <li>Apply app blocking when minutes reach zero</li>
-                <li>Track workout progress and award screen-time minutes</li>
+                <li>Apply app blocking based on your activity</li>
+                <li>Track workout/face exercise progress in real-time</li>
                 <li>Verify your <strong>pro_pass</strong> subscription status</li>
-                <li>Improve app performance, stability, and user experience</li>
             </ul>
             
             <div class="highlight-box">
-                <strong>We do not:</strong>
+                <strong>Our Commitment:</strong>
                 <ul>
-                    <li>Sell your data</li>
-                    <li>Share your personal workout or usage data with advertisers</li>
-                    <li>Track you across other apps or websites</li>
+                    <li>We do not sell your data.</li>
+                    <li>We do not share your workout or usage data with advertisers.</li>
+                    <li>We do not store facial or biometric data.</li>
                 </ul>
-                <p><em>Note: Google AdMob independently collects non-identifiable device data solely for the purpose of serving advertisements, as outlined in Section 1.4.</em></p>
             </div>
         </section>
 
         <section>
-            <h2>3. Android Accessibility Service Disclosure</h2>
-            <p>On Android, SweatPass uses the Accessibility Service solely to:</p>
-            <ul>
-                <li>Detect when your selected apps are opened</li>
-                <li>Display a blocking screen when your screen-time minutes reach zero</li>
-            </ul>
-            <p><strong>SweatPass never uses Accessibility to:</strong></p>
-            <ul>
-                <li>Read text from your screen</li>
-                <li>Access messages, photos, passwords, or personal content</li>
-                <li>Perform actions on your behalf</li>
-                <li>Control your phone outside of the lock screen feature</li>
-            </ul>
-            <p>Accessibility data is not stored, not transmitted, and not shared.</p>
+            <h2>4. Android Accessibility Service Disclosure</h2>
+            <p>On Android, SweatPass uses the Accessibility Service solely to detect when selected apps are opened and to display the blocking screen. This data is not stored, transmitted, or shared.</p>
         </section>
 
         <section>
-            <h2>4. iOS Screen Time API Disclosure</h2>
-            <p>On iOS, SweatPass uses the Apple Screen Time API only to:</p>
-            <ul>
-                <li>Request permission to manage selected apps</li>
-                <li>Enforce app usage limits based on your workout status</li>
-            </ul>
-            <p>SweatPass has no access to your personal content or activity inside other apps.</p>
+            <h2>5. iOS Screen Time API Disclosure</h2>
+            <p>On iOS, SweatPass uses the Apple Screen Time API only to manage selected apps and enforce usage limits. SweatPass has no access to your personal content inside other apps.</p>
         </section>
 
         <section>
-            <h2>5. Data Storage and Security</h2>
+            <h2>6. Data Storage and Security</h2>
             <ul>
-                <li>SweatPass stores all local data (timer, selected apps, settings) <strong>on your device only</strong>.</li>
-                <li>No workout images, camera frames, or biometric data are ever stored.</li>
+                <li>SweatPass stores all local settings and timers <strong>on your device only</strong>.</li>
+                <li>No workout images, camera frames, or face data are ever stored or uploaded.</li>
                 <li>If you uninstall the app, all local data is automatically deleted.</li>
-                <li>We use industry-standard safeguards to protect any optional anonymous analytics collected.</li>
             </ul>
         </section>
 
         <section>
-            <h2>6. Children’s Privacy</h2>
-            <p>SweatPass is not designed for children under 13. We do not knowingly collect personal information from children.</p>
-        </section>
-
-        <section>
-            <h2>7. Third-Party Services</h2>
-            <p>SweatPass may use third-party services strictly for the following purposes:</p>
-            <ul>
-                <li><strong>Google AdMob:</strong> For displaying advertisements (collects device ad identifiers).</li>
-                <li><strong>Apple App Store / Google Play Store:</strong> For securely processing the monthly <em>pro_pass</em> subscription.</li>
-                <li><strong>Analytics Tools:</strong> For anonymous crash reporting and usage analytics.</li>
-            </ul>
-            <p>Aside from ad identifiers used by AdMob, these services do not receive any personal or sensitive user data from us.</p>
-        </section>
-
-        <section>
-            <h2>8. Your Choices</h2>
-            <p>You control:</p>
-            <ul>
-                <li>Which apps SweatPass is allowed to monitor</li>
-                <li>Whether to enable Accessibility services on Android</li>
-                <li>Whether to allow camera access for workout tracking</li>
-                <li>Whether to share anonymous diagnostics</li>
-                <li>Your ad tracking preferences (via your iOS or Android device settings)</li>
-            </ul>
-            <p>You may revoke permissions at any time in your device settings.</p>
-        </section>
-
-        <section>
-            <h2>9. Changes to This Privacy Policy</h2>
-            <p>We may update this Privacy Policy from time to time. Updates will be posted within the app or on our website. Continued use of the app after changes indicates your acceptance.</p>
-        </section>
-
-        <section>
-            <h2>10. Contact Us</h2>
-            <p>If you have any questions or requests regarding privacy, contact us at: <a href="mailto:hello@mewguys.com">hello@mewguys.com</a></p>
+            <h2>7. Contact Us</h2>
+            <p>If you have any questions regarding your privacy, contact us at: <a href="mailto:hello@mewguys.com">hello@mewguys.com</a></p>
         </section>
     </div>
 
