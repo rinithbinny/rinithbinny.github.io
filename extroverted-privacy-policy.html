@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#65e51c" />
+  <meta name="description" content="Privacy Policy for Extroverted — a social confidence and communication learning app." />
+  <title>Privacy Policy — Extroverted</title>
+
+  <style>
+    :root {
+      --green: #62df1b;
+      --green-dark: #39a90b;
+      --green-soft: #efffe8;
+      --ink: #171a16;
+      --muted: #697067;
+      --line: #e8ece5;
+      --card: #ffffff;
+      --bg: #f7faf5;
+      --shadow: 0 18px 50px rgba(30, 55, 20, 0.08);
+      --radius: 24px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(98, 223, 27, 0.12), transparent 30%),
+        linear-gradient(180deg, #fbfdf9 0%, var(--bg) 100%);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display",
+        "SF Pro Text", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--green-dark);
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(18px);
+      -webkit-backdrop-filter: blur(18px);
+      background: rgba(251, 253, 249, 0.84);
+      border-bottom: 1px solid rgba(232, 236, 229, 0.8);
+    }
+
+    .topbar-inner {
+      max-width: 1080px;
+      margin: auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      color: var(--ink);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .brand img {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      object-fit: cover;
+      box-shadow: 0 5px 15px rgba(45, 130, 10, 0.18);
+    }
+
+    .updated {
+      color: var(--muted);
+      font-size: 13px;
+      white-space: nowrap;
+    }
+
+    .page {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 54px 24px 90px;
+      display: grid;
+      grid-template-columns: 230px minmax(0, 1fr);
+      gap: 52px;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 88px;
+      align-self: start;
+    }
+
+    .toc-title {
+      margin: 0 0 12px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: #8a9287;
+    }
+
+    .toc {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .toc a {
+      color: #5d655b;
+      font-size: 14px;
+      padding: 8px 11px;
+      border-radius: 10px;
+      font-weight: 600;
+    }
+
+    .toc a:hover {
+      background: var(--green-soft);
+      color: var(--green-dark);
+      text-decoration: none;
+    }
+
+    .content {
+      min-width: 0;
+    }
+
+    .hero {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 32px;
+      padding: 42px;
+      box-shadow: var(--shadow);
+      margin-bottom: 22px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 210px;
+      height: 210px;
+      border-radius: 50%;
+      background: rgba(98, 223, 27, 0.10);
+      right: -80px;
+      top: -90px;
+      pointer-events: none;
+    }
+
+    .hero-logo {
+      width: 76px;
+      height: 76px;
+      border-radius: 21px;
+      object-fit: cover;
+      box-shadow: 0 12px 28px rgba(45, 130, 10, 0.18);
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      color: var(--green-dark);
+      background: var(--green-soft);
+      border: 1px solid #ddf7d2;
+      border-radius: 999px;
+      padding: 6px 11px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.04;
+      letter-spacing: -0.045em;
+      margin: 0 0 15px;
+    }
+
+    .hero p {
+      max-width: 690px;
+      color: var(--muted);
+      font-size: 17px;
+      margin: 0;
+    }
+
+    .section {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 34px 36px;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+
+    h3 {
+      margin: 25px 0 8px;
+      font-size: 17px;
+      line-height: 1.35;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    ul {
+      margin: 8px 0 15px;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 7px 0;
+    }
+
+    .highlight {
+      background: linear-gradient(135deg, #f3ffed, #fbfff9);
+      border: 1px solid #dff6d4;
+      border-radius: 17px;
+      padding: 17px 18px;
+      margin: 18px 0;
+    }
+
+    .highlight strong {
+      color: #258006;
+    }
+
+    .data-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .data-card {
+      border: 1px solid var(--line);
+      border-radius: 17px;
+      padding: 17px;
+      background: #fcfdfb;
+    }
+
+    .data-card .icon {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--green-soft);
+      margin-bottom: 10px;
+      font-size: 16px;
+    }
+
+    .data-card strong {
+      display: block;
+      margin-bottom: 4px;
+      font-size: 14px;
+    }
+
+    .data-card span {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+      display: block;
+    }
+
+    .footer {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 24px 45px;
+      color: #8a9287;
+      font-size: 13px;
+      text-align: center;
+    }
+
+    .contact {
+      background: #171a16;
+      color: white;
+      border-radius: 22px;
+      padding: 25px 27px;
+      margin-top: 20px;
+    }
+
+    .contact p {
+      color: #c7ccc4;
+      margin-bottom: 7px;
+    }
+
+    .contact a {
+      color: #8bf15b;
+    }
+
+    .pill {
+      display: inline-block;
+      padding: 3px 9px;
+      border-radius: 999px;
+      background: #f0f2ee;
+      color: #555d53;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 820px) {
+      .page {
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-top: 30px;
+      }
+
+      .sidebar {
+        position: static;
+        order: 2;
+      }
+
+      .toc {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .content {
+        order: 1;
+      }
+
+      .hero {
+        padding: 30px 25px;
+      }
+
+      .section {
+        padding: 27px 24px;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .topbar-inner {
+        padding: 11px 17px;
+      }
+
+      .updated {
+        display: none;
+      }
+
+      .page {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+
+      .hero {
+        border-radius: 24px;
+      }
+
+      .section {
+        border-radius: 19px;
+      }
+
+      .data-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+
+      .footer {
+        padding-left: 15px;
+        padding-right: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top" aria-label="Extroverted Privacy Policy">
+        <img src="https://i.ibb.co/rRfp7R7X/extroverted-logo.png" alt="Extroverted logo" />
+        <span>Extroverted</span>
+      </a>
+      <span class="updated">Last updated: October 14, 2026</span>
+    </div>
+  </header>
+
+  <main class="page" id="top">
+    <aside class="sidebar" aria-label="Table of contents">
+      <p class="toc-title">On this page</p>
+      <nav class="toc">
+        <a href="#overview">Overview</a>
+        <a href="#information">Information We Collect</a>
+        <a href="#camera-mic">Camera &amp; Microphone</a>
+        <a href="#ai">AI Analysis</a>
+        <a href="#ads">Advertising</a>
+        <a href="#subscriptions">Subscriptions</a>
+        <a href="#use">How We Use Information</a>
+        <a href="#sharing">Sharing</a>
+        <a href="#retention">Data Retention</a>
+        <a href="#security">Security</a>
+        <a href="#children">Children</a>
+        <a href="#rights">Your Choices</a>
+        <a href="#changes">Changes</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </aside>
+
+    <article class="content">
+      <section class="hero">
+        <img class="hero-logo" src="https://i.ibb.co/rRfp7R7X/extroverted-logo.png" alt="Extroverted app logo" />
+        <div class="eyebrow">PRIVACY POLICY</div>
+        <h1>Your privacy matters.</h1>
+        <p>
+          This Privacy Policy explains how Extroverted handles information when you
+          use our app. We designed the app to help you build communication and
+          social-confidence skills while keeping the information needed to operate
+          the experience as limited as practical.
+        </p>
+      </section>
+
+      <section class="section" id="overview">
+        <h2>1. Overview</h2>
+        <p>
+          This Privacy Policy applies to the <strong>Extroverted</strong> mobile
+          application and related services (collectively, the “App”). In this
+          policy, “we,” “us,” and “our” refer to the operator of Extroverted.
+        </p>
+        <p>
+          By using Extroverted, you acknowledge that you have read and understood
+          this Privacy Policy.
+        </p>
+
+        <div class="highlight">
+          <strong>In short:</strong> Extroverted uses your device’s camera and
+          microphone for certain interactive lessons and levels. We do not store
+          camera or microphone recordings on our servers. Certain responses may be
+          sent to Google Gemini so that our service can analyze and score your
+          answers.
+        </div>
+      </section>
+
+      <section class="section" id="information">
+        <h2>2. Information We Collect</h2>
+        <p>
+          The information handled by Extroverted depends on how you use the App.
+          This may include:
+        </p>
+
+        <div class="data-grid">
+          <div class="data-card">
+            <div class="icon">📷</div>
+            <strong>Camera data</strong>
+            <span>
+              Used during applicable exercises and levels. Camera input is not
+              stored by us as a permanent recording.
+            </span>
+          </div>
+
+          <div class="data-card">
+            <div class="icon">🎙️</div>
+            <strong>Microphone data</strong>
+            <span>
+              Used during applicable speaking or interactive exercises. We do not
+              store microphone recordings on our servers.
+            </span>
+          </div>
+
+          <div class="data-card">
+            <div class="icon">🤖</div>
+            <strong>Exercise responses</strong>
+            <span>
+              Responses may be processed by Google Gemini to evaluate and score
+              answers.
+            </span>
+          </div>
+
+          <div class="data-card">
+            <div class="icon">📱</div>
+            <strong>App &amp; purchase information</strong>
+            <span>
+              Information needed to operate the App, subscriptions, purchases,
+              advertising, and basic service functionality may be processed by us
+              or our service providers.
+            </span>
+          </div>
+        </div>
+
+        <p>
+          We do not ask you to provide sensitive personal information simply to
+          use the core learning experience. Please avoid voluntarily submitting
+          sensitive information in free-form responses unless it is necessary for
+          an exercise.
+        </p>
+      </section>
+
+      <section class="section" id="camera-mic">
+        <h2>3. Camera &amp; Microphone</h2>
+        <p>
+          Some Extroverted levels require access to your device’s camera and/or
+          microphone to make the experience interactive and to determine whether
+          you have completed an exercise.
+        </p>
+
+        <h3>What happens to this data?</h3>
+        <ul>
+          <li>Camera and microphone access is used only when required by an applicable exercise.</li>
+          <li>We do not permanently store camera recordings or microphone recordings on our servers.</li>
+          <li>Camera and microphone-related information may exist temporarily in the App’s local device cache while the feature is running.</li>
+          <li>You can control camera and microphone permissions through your device settings.</li>
+        </ul>
+
+        <div class="highlight">
+          <strong>Important:</strong> If you deny camera or microphone permission,
+          features that require those permissions may not work, but you can
+          continue using other parts of the App where available.
+        </div>
+      </section>
+
+      <section class="section" id="ai">
+        <h2>4. AI-Powered Analysis</h2>
+        <p>
+          Extroverted uses <strong>Google Gemini</strong> to analyze certain
+          responses submitted during lessons and provide an evaluation or score.
+        </p>
+
+        <h3>What may be sent for analysis?</h3>
+        <p>
+          Depending on the exercise, the information sent for AI analysis may
+          include the response you provide and contextual information necessary
+          to evaluate that response.
+        </p>
+
+        <h3>Why do we use AI?</h3>
+        <p>
+          AI analysis helps Extroverted automatically evaluate answers and provide
+          a more interactive learning experience.
+        </p>
+
+        <p>
+          Google may process information sent to its Gemini services in accordance
+          with the applicable Google terms and privacy policies and the specific
+          Gemini service configuration used by Extroverted.
+        </p>
+      </section>
+
+      <section class="section" id="ads">
+        <h2>5. Advertising</h2>
+        <p>
+          Extroverted uses <strong>Google AdMob</strong> to display advertisements
+          in parts of the App.
+        </p>
+        <p>
+          AdMob and its partners may collect or receive information such as
+          advertising identifiers, device information, approximate location,
+          interaction information, and other information used for advertising,
+          measurement, fraud prevention, and related purposes, depending on your
+          platform, consent choices, and applicable settings.
+        </p>
+        <p>
+          Advertising behavior is primarily controlled by Google and the
+          advertising settings available on your device and platform. Where
+          required by applicable law, we will request the appropriate consent
+          before using personal information for personalized advertising.
+        </p>
+      </section>
+
+      <section class="section" id="subscriptions">
+        <h2>6. Subscriptions &amp; In-App Purchases</h2>
+        <p>
+          Extroverted offers optional paid subscriptions, including
+          <span class="pill">1 month</span> and
+          <span class="pill">1 year</span> subscription options.
+        </p>
+        <p>
+          Purchases are processed through the relevant app store, such as the
+          Apple App Store or Google Play. We do not receive or store your full
+          payment card or bank account details through the App.
+        </p>
+        <p>
+          The app store may provide us with purchase-related information necessary
+          to verify your subscription, provide access to paid features, prevent
+          fraud, and manage your entitlement.
+        </p>
+        <p>
+          Subscription billing, renewal, cancellation, refunds, and payment
+          processing are subject to the applicable app store’s terms and policies.
+        </p>
+      </section>
+
+      <section class="section" id="use">
+        <h2>7. How We Use Information</h2>
+        <p>We may use information handled through Extroverted to:</p>
+        <ul>
+          <li>Provide and operate the App and its features.</li>
+          <li>Enable interactive lessons that use the camera or microphone.</li>
+          <li>Analyze and score eligible exercise responses using AI.</li>
+          <li>Provide, verify, and manage subscriptions and in-app purchases.</li>
+          <li>Display and measure advertisements.</li>
+          <li>Maintain App security, prevent abuse, and troubleshoot technical issues.</li>
+          <li>Improve the reliability and functionality of our services.</li>
+          <li>Comply with applicable legal obligations.</li>
+        </ul>
+      </section>
+
+      <section class="section" id="sharing">
+        <h2>8. How We Share Information</h2>
+        <p>
+          We do not sell your personal information for money.
+        </p>
+        <p>
+          We may share or make information available to service providers when
+          necessary to operate Extroverted. These may include:
+        </p>
+        <ul>
+          <li><strong>Google Gemini</strong> — for AI analysis and scoring of applicable responses.</li>
+          <li><strong>Google AdMob</strong> — for advertising, measurement, and related advertising services.</li>
+          <li><strong>Apple / Google Play</strong> — for processing and validating in-app purchases and subscriptions.</li>
+          <li>Other infrastructure or service providers that are reasonably necessary to operate, secure, or maintain the App.</li>
+        </ul>
+        <p>
+          We may also disclose information when required by law, legal process,
+          or a valid governmental request, or when reasonably necessary to protect
+          the rights, safety, security, or property of users, the public, or our
+          services.
+        </p>
+      </section>
+
+      <section class="section" id="retention">
+        <h2>9. Data Retention</h2>
+        <p>
+          We retain information only for as long as reasonably necessary for the
+          purposes described in this Privacy Policy, unless a longer retention
+          period is required or permitted by law.
+        </p>
+        <p>
+          We do not retain camera or microphone recordings as permanent server-side
+          data. Temporary camera or microphone-related information may exist in
+          the App’s local cache while needed by the App.
+        </p>
+        <p>
+          Information processed by third-party providers, such as Google services
+          or app stores, may be retained according to their own policies and
+          applicable service configurations.
+        </p>
+      </section>
+
+      <section class="section" id="security">
+        <h2>10. Security</h2>
+        <p>
+          We use reasonable technical and organizational measures designed to
+          protect information handled through the App. However, no method of
+          electronic transmission or storage can be guaranteed to be completely
+          secure.
+        </p>
+      </section>
+
+      <section class="section" id="children">
+        <h2>11. Children’s Privacy</h2>
+        <p>
+          Extroverted is not intended for children where the use of the App would
+          be prohibited by applicable law. We do not knowingly collect personal
+          information from children in violation of applicable legal requirements.
+        </p>
+        <p>
+          If you believe that a child has provided personal information to us in
+          a manner that violates applicable law, please contact us so that we can
+          review the situation and take appropriate action.
+        </p>
+      </section>
+
+      <section class="section" id="rights">
+        <h2>12. Your Choices &amp; Privacy Rights</h2>
+        <p>
+          Depending on where you live, you may have rights regarding your personal
+          information, including rights to access, delete, correct, restrict, or
+          object to certain processing.
+        </p>
+        <p>
+          You may also control certain permissions, advertising settings, and
+          tracking preferences through your device and platform settings.
+        </p>
+        <p>
+          To make a privacy-related request, contact us using the email address
+          below. We may need to verify your request before completing it.
+        </p>
+      </section>
+
+      <section class="section" id="changes">
+        <h2>13. Changes to This Privacy Policy</h2>
+        <p>
+          We may update this Privacy Policy from time to time to reflect changes
+          to the App, our services, applicable law, or our privacy practices.
+        </p>
+        <p>
+          When we make changes, we will update the “Last updated” date at the top
+          of this page. Your continued use of Extroverted after an updated policy
+          becomes effective means you acknowledge the updated policy.
+        </p>
+      </section>
+
+      <section class="section" id="contact">
+        <h2>14. Contact Us</h2>
+        <p>
+          If you have questions, concerns, or requests regarding this Privacy
+          Policy or the privacy practices of Extroverted, please contact us:
+        </p>
+
+        <div class="contact">
+          <p><strong>Extroverted</strong></p>
+          <p>Email: <a href="mailto:hello@mewguys.com">hello@mewguys.com</a></p>
+        </div>
+      </section>
+    </article>
+  </main>
+
+  <footer class="footer">
+    © 2026 Extroverted. All rights reserved.
+  </footer>
+</body>
+</html>
